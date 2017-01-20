@@ -3,7 +3,6 @@ import {map, all, has} from 'ramda';
 import fs from 'fs';
 import parseECMA from '../src/utils/parseECMA';
 import extractTranslations from '../src/utils/extractTranslations'
-
 const source = fs.readFileSync('./assets/jsx/example.jsx', 'utf8');
 const AST = parseECMA(source);
 

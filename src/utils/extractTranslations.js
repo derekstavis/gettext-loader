@@ -9,7 +9,16 @@ const extractTranslations = (...args) => (ast) => {
     return [];
   }
 
-  const gettextLocations = map((node) => node.loc.start)(gettextFunctions);
+  const gettextFunctionsReceivingLiteral = filter(
+    pipe(
+      prop('arguments'),
+      head,
+      propEq('type', 'Literal')
+    ),
+    gettextFunctions
+  );
+
+  const gettextLocations = map((node) => node.loc.start)(gettextFunctionsReceivingLiteral);
   const firstArgument = compose(prop('value'), head, prop('arguments'));
   const translationStrings = map(firstArgument)(gettextFunctions);
 

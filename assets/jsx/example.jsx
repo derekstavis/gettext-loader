@@ -12,7 +12,7 @@ class Example extends React.Component {
     return (
       <div className='container'>
         <div className='top'>
-          <p>{this.props.text}</p>
+          <p>{__(this.props.text)}</p>
           <p></p>
           <p>{__('pegasus')}</p>
         </div>
